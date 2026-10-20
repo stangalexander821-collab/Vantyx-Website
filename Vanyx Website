@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANTYX | Warzone Community</title>
+<style>
+:root{--green:#b5ff35;--bg:#090c0a;--panel:#151a16}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Arial,sans-serif;background:var(--bg);color:white}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:5;background:#090c0af2;border-bottom:1px solid #343d34}
+.nav{max-width:1100px;margin:auto;padding:18px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-size:25px;font-weight:1000;letter-spacing:4px}
+.logo span{color:var(--green)}
+nav{display:flex;flex-wrap:wrap;gap:16px;font-size:13px}
+nav a:hover{color:var(--green)}
+.hero{min-height:570px;padding:90px 22px;display:flex;align-items:center;background:linear-gradient(90deg,#080b09 0%,#080b09db 50%,#080b0970),url("https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=1600&q=85") center/cover;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,#b5ff3510,transparent 45%);pointer-events:none}
+.hero-content{max-width:1100px;width:100%;margin:auto;position:relative;z-index:1;animation:rise 1s ease}
+.eyebrow{color:var(--green);font-size:12px;font-weight:bold;letter-spacing:4px;margin-bottom:20px}
+h1{font-size:clamp(52px,12vw,105px);font-weight:1000;line-height:.9;letter-spacing:-3px}
+h1 span{color:var(--green)}
+.hero p{max-width:550px;color:#c4ccc5;line-height:1.7;margin:25px 0}
+.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 21px;font-weight:bold;font-size:12px;letter-spacing:1px;border:1px solid #52604e;transition:.2s;cursor:pointer}
+.btn.primary{background:var(--green);color:#10140c;border-color:var(--green)}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:35px;font-size:11px;letter-spacing:2px;color:#d1d8d1}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+section{max-width:1100px;margin:auto;padding:70px 22px}
+.section-tag{color:var(--green);font-size:11px;letter-spacing:3px;font-weight:bold;margin-bottom:12px}
+h2{font-size:clamp(28px,5vw,42px);margin-bottom:15px}
+.sub{color:#aab3ab;line-height:1.7;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:linear-gradient(145deg,#1a211b,#101411);border:1px solid #303a30;padding:24px;border-radius:4px;transition:.25s}
+.card:hover{border-color:#7c9d4e;transform:translateY(-3px)}
+.card .number{font-size:12px;color:var(--green);letter-spacing:2px;margin-bottom:17px}
+.card h3{font-size:20px;margin-bottom:10px}
+.card p{color:#aeb7af;line-height:1.6;font-size:14px}
+.owner{border-left:3px solid var(--green)}
+.owner strong{color:var(--green)}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:16px}
+input,select{width:100%;padding:14px;background:#0c100d;color:white;border:1px solid #39443a;border-radius:3px;font-size:14px}
+input:focus,select:focus{outline:1px solid var(--green)}
+.table-wrap{overflow-x:auto;margin-top:22px}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:15px 12px;border-bottom:1px solid #303830;font-size:13px}
+th{color:var(--green);font-size:11px;letter-spacing:1px}
+.empty{color:#929b93;font-size:14px;padding:18px 0}
+.team-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.team-card{padding:18px;background:#101511;border:1px solid #303a30}
+.team-card h3{color:var(--green);margin-bottom:8px}
+.discord-panel{background:linear-gradient(110deg,#1b2519,#101411);border:1px solid #394735;padding:clamp(25px,6vw,55px);text-align:center}
+.discord-panel p{color:#b5beb6;margin:15px auto 25px;line-height:1.7;max-width:500px}
+footer{text-align:center;padding:30px 15px;border-top:1px solid #283028;color:#858e86;font-size:11px;letter-spacing:1px;line-height:2}
+footer span{color:var(--green)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){
+ .nav{align-items:flex-start;flex-direction:column}
+ nav{gap:13px}
+ .hero{min-height:510px;padding:70px 20px}
+ .grid{grid-template-columns:1fr}
+ .form-grid,.team-list{grid-template-columns:1fr}
+ section{padding:55px 20px}
+ h1{letter-spacing:-2px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="nav">
+  <a class="logo" href="#home">VAN<span>TYX</span></a>
+  <nav>
+   <a href="#about">COMMUNITY</a>
+   <a href="#turniere">TURNIERE</a>
+   <a href="#teams">TEAMS</a>
+   <a href="#owner">OWNER</a>
+   <a href="#discord">DISCORD</a>
+  </nav>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home" style="max-width:none">
+ <div class="hero-content">
+  <div class="eyebrow">CALL OF DUTY · WARZONE COMMUNITY</div>
+  <h1>ENTER THE<br><span>VANTYX</span><br>ZONE.</h1>
+  <p>Keine Ausreden. Nur dein Squad, taktisches Gameplay und der nächste Win. Werde Teil der Community und kämpfe mit uns.</p>
+  <div class="buttons">
+   <a class="btn primary" href="https://discord.gg/5RPkPAPDU" target="_blank" rel="noopener">DISCORD BEITRETEN ↗</a>
+   <a class="btn" href="#turniere">TURNIERE ENTDECKEN ↓</a>
+  </div>
+  <div class="status"><span class="dot"></span> SQUAD UP · DROP IN · WIN</div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="section-tag">01 / DIE COMMUNITY</div>
+ <h2>BUILT FOR THE BATTLE.</h2>
+ <p class="sub">Willkommen bei VANTYX. Hier treffen sich Warzone-Spieler für gemeinsame Runden, Teamplay und Community-Events.</p>
+ <div class="grid">
+  <div class="card"><div class="number">01 / SQUAD</div><h3>Finde dein Team</h3><p>Finde Mitspieler, bilde deinen Squad und starte gemeinsam in die nächste Runde.</p></div>
+  <div class="card"><div class="number">02 / COMPETE</div><h3>Spiele Turniere</h3><p>Trage Community-Turniere ein und halte geplante Matches übersichtlich fest.</p></div>
+  <div class="card"><div class="number">03 / CONNECT</div><h3>Werde Teil davon</h3><p>Tritt unserem Discord bei und lerne andere Spieler kennen.</p></div>
+ </div>
+</section>
+
+<section id="turniere">
+ <div class="section-tag">02 / COMPETITIVE</div>
+ <h2>TURNIER-ZENTRALE.</h2>
+ <p class="sub">Erstelle Turniere und behalte Termine und Teilnehmer im Überblick.</p>
+ <div class="card">
+  <h3>+ Neues Turnier</h3><br>
+  <div class="form-grid">
+   <input id="tname" placeholder="Turniername">
+   <select id="modus"><option>Battle Royale</option><option>Resurgence</option><option>Solo</option><option>Duo</option><option>Trio</option><option>Quad</option></select>
+   <input id="datum" type="date" aria-label="Turnierdatum">
+   <input id="anzahl" type="number" min="1" placeholder="Anzahl Teams">
+  </div>
+  <button class="btn primary" onclick="addTurnier()">TURNIER HINZUFÜGEN +</button>
+  <div class="table-wrap">
+   <table>
+    <thead><tr><th>TURNIER</th><th>MODUS</th><th>DATUM</th><th>TEAMS</th><th></th></tr></thead>
+    <tbody id="turnierListe"></tbody>
+   </table>
+  </div>
+  <p class="empty" id="leer">Noch keine Turniere eingetragen.</p>
+ </div>
+</section>
+
+<section id="teams">
+ <div class="section-tag">03 / SQUAD MANAGEMENT</div>
+ <h2>DEIN SQUAD.</h2>
+ <p class="sub">Erstelle eine Übersicht der Teams deiner Community.</p>
+ <div class="card">
+  <div class="form-grid">
+   <input id="teamname" placeholder="Teamname">
+   <input id="spieler" placeholder="Spielernamen, z. B. Alex, Max, Leon">
+  </div>
+  <button class="btn primary" onclick="addTeam()">TEAM ERSTELLEN +</button>
+ </div>
+ <div class="team-list" id="teamListe"></div>
+ <p class="empty" id="teamLeer">Noch keine Teams erstellt.</p>
+</section>
+
+<section id="owner">
+ <div class="section-tag">04 / COMMAND</div>
+ <h2>BEHIND VANTYX.</h2>
+ <div class="card owner">
+  <div class="number">COMMUNITY OWNER</div>
+  <h3>GENERAL_1105</h3>
+  <p>Verantwortlich für die VANTYX-Community und ihre Organisation.</p>
+  <br><strong>STATUS: COMMAND ACTIVE</strong>
+ </div>
+</section>
+
+<section id="discord">
+ <div class="discord-panel">
+  <div class="section-tag">YOUR NEXT DROP STARTS HERE</div>
+  <h2>DEIN SQUAD WARTET.</h2>
+  <p>Bereit für Warzone? Tritt VANTYX bei, finde Mitspieler und werde Teil der Community.</p>
+  <a class="btn primary" href="https://discord.gg/5RPkPAPDU" target="_blank" rel="noopener">JETZT DISCORD BEITRETEN ↗</a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <span>VANTYX</span> © 2026 · WARZONE COMMUNITY<br>
+ Fan-Community · Nicht offiziell mit Activision verbunden.
+</footer>
+
+<script>
+const KEY_T="vantyx_turniere_v1";
+const KEY_S="vantyx_teams_v1";
+let turniere=[], teams=[];
+
+try {
+ turniere=JSON.parse(localStorage.getItem(KEY_T)||"[]");
+ teams=JSON.parse(localStorage.getItem(KEY_S)||"[]");
+} catch(e) {
+ turniere=[]; teams=[];
+}
+
+function save(){
+ try {
+  localStorage.setItem(KEY_T,JSON.stringify(turniere));
+  localStorage.setItem(KEY_S,JSON.stringify(teams));
+ } catch(e) {
+  alert("Speichern ist in diesem Browser nicht verfügbar.");
+ }
+}
+
+function addTurnier(){
+ const name=document.getElementById("tname").value.trim();
+ const modus=document.getElementById("modus").value;
+ const datum=document.getElementById("datum").value;
+ const anzahl=Number(document.getElementById("anzahl").value);
+
+ if(!name||!datum||!Number.isInteger(anzahl)||anzahl<1){
+  alert("Bitte Turniername, Datum und eine gültige Teamanzahl eingeben.");
+  return;
+ }
+
+ turniere.push({id:Date.now(),name,modus,datum,anzahl});
+ save();
+ document.getElementById("tname").value="";
+ document.getElementById("datum").value="";
+ document.getElementById("anzahl").value="";
+ renderTurniere();
+}
+
+function removeTurnier(id){
+ turniere=turniere.filter(t=>t.id!==id);
+ save(); renderTurniere();
+}
+
+function renderTurniere(){
+ const liste=document.getElementById("turnierListe");
+ liste.replaceChildren();
+ turniere.forEach(t=>{
+  const tr=document.createElement("tr");
+  [t.name,t.modus,t.datum,t.anzahl].forEach(value=>{
+   const td=document.createElement("td");
+   td.textContent=value;
+   tr.appendChild(td);
+  });
+  const td=document.createElement("td");
+  const btn=document.createElement("button");
+  btn.textContent="Löschen";
+  btn.className="btn";
+  btn.style.padding="8px";
+  btn.onclick=()=>removeTurnier(t.id);
+  td.appendChild(btn);
+  tr.appendChild(td);
+  liste.appendChild(tr);
+ });
+ document.getElementById("leer").style.display=turniere.length?"none":"block";
+}
+
+function addTeam(){
+ const name=document.getElementById("teamname").value.trim();
+ const spieler=document.getElementById("spieler").value.trim();
+ if(!name||!spieler){
+  alert("Bitte Teamname und Spieler eingeben.");
+  return;
+ }
+ teams.push({id:Date.now(),name,spieler});
+ save();
+ document.getElementById("teamname").value="";
+ document.getElementById("spieler").value="";
+ renderTeams();
+}
+
+function removeTeam(id){
+ teams=teams.filter(t=>t.id!==id);
+ save(); renderTeams();
+}
+
+function renderTeams(){
+ const liste=document.getElementById("teamListe");
+ liste.replaceChildren();
+ teams.forEach((team,index)=>{
+  const card=document.createElement("div");
+  card.className="team-card";
+  const title=document.createElement("h3");
+  title.textContent="SQUAD "+String(index+1).padStart(2,"0")+" · "+team.name;
+  const p=document.createElement("p");
+  p.textContent="Spieler: "+team.spieler;
+  p.style.color="#aeb7af";
+  p.style.margin="10px 0 15px";
+  const btn=document.createElement("button");
+  btn.className="btn";
+  btn.textContent="Team löschen";
+  btn.onclick=()=>removeTeam(team.id);
+  card.append(title,p,btn);
+  liste.appendChild(card);
+ });
+ document.getElementById("teamLeer").style.display=teams.length?"none":"block";
+}
+
+renderTurniere();
+renderTeams();
+</script>
+</body>
+</html>
